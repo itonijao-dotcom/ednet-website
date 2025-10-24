@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ED NET — Expert en nettoyage depuis 2023</title>
+  <meta name="description" content="ED NET propose des services de nettoyage professionnels pour résidences, bureaux et copropriétés : vitres, sols, après-travaux, espaces verts, gestion des déchets. Devis gratuit."/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220;
+      --ink:#0f172a;
+      --white:#ffffff;
+      --muted:#6b7280;
+      --brand:#22c55e;      /* vert propre */
+      --brand-ink:#0e9f6e;
+      --sky:#0ea5e9;        /* bleu clair */
+      --card:#0f1a30;
+      --ring:rgba(34,197,94,.35);
+      --soft:rgba(255,255,255,.06);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+      color:#e5e7eb;
+      background: radial-gradient(1300px 900px at 80% -10%, rgba(34,197,94,.10), transparent 60%),
+                  radial-gradient(1200px 800px at -10% 20%, rgba(14,165,233,.10), transparent 55%),
+                  #0b1220;
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1160px,92%);margin-inline:auto}
+    .btn{
+      display:inline-flex;align-items:center;gap:.55rem;
+      background:linear-gradient(180deg, var(--brand), var(--brand-ink));
+      color:#07130b;border:0;padding:.9rem 1.15rem;font-weight:700;border-radius:999px;
+      box-shadow:0 6px 18px rgba(34,197,94,.35); transition:.2s transform, .2s box-shadow, .2s filter;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 10px 26px rgba(34,197,94,.45); filter:saturate(1.1)}
+    .btn-outline{
+      background:transparent;border:1px solid rgba(255,255,255,.18);color:#e5e7eb;
+      padding:.85rem 1.15rem;border-radius:999px;backdrop-filter: blur(6px);
+    }
+    .badge{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .7rem;border-radius:999px;background:rgba(34,197,94,.15); color:#a7f3d0; font-weight:700; font-size:.85rem}
+    .chip{display:inline-block;border:1px solid rgba(255,255,255,.12);padding:.35rem .7rem;border-radius:999px;color:#cbd5e1;font-size:.85rem}
+    .nav{
+      position:sticky;top:0;z-index:50;background:rgba(6,10,20,.7);
+      backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .nav .inner{display:flex;align-items:center;justify-content:space-between; padding: .8rem 0}
+    .brand{display:flex;gap:.7rem;align-items:center;font-weight:800;letter-spacing:.3px}
+    .brand .mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 190deg at 70% 30%, var(--brand), var(--sky), #60a5fa, var(--brand)); box-shadow: inset 0 0 8px rgba(0,0,0,.15)}
+    .menu{display:flex;gap:1.1rem;align-items:center}
+    .menu a{color:#cbd5e1;font-weight:600;font-size:.95rem;opacity:.9}
+    .menu a:hover{opacity:1}
+    .hero{padding: clamp(64px, 7vw, 96px) 0 56px}
+    .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr; gap:32px; align-items:center}
+    .h1{font-size:clamp(30px, 5vw, 54px); line-height:1.1; margin:.2rem 0 1rem; font-weight:800}
+    .lead{color:#c7d2fe; font-size:clamp(16px, 2.1vw, 18px)}
+    .glass{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.10); border-radius: var(--radius); box-shadow: var(--shadow)
+    }
+    .hero-media{aspect-ratio: 4/3; border-radius: var(--radius); overflow:hidden; position:relative}
+    .hero-media::after{content:""; position:absolute; inset:0; background: radial-gradient(800px 400px at 80% 0%, rgba(34,197,94,.16), transparent 60%)}
+    .hero-media img{width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.05)}
+    .cta-row{display:flex; gap:.9rem; flex-wrap:wrap; margin-top:1.1rem}
+    .trust{display:flex; gap:.6rem; flex-wrap:wrap; margin-top:1.15rem}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr); gap:16px; margin-top:18px}
+    .stat{padding:16px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);text-align:center}
+    .stat b{font-size:1.4rem}
+    .section{padding:60px 0}
+    .section h2{font-size:clamp(24px, 3.3vw, 36px); margin:0 0 12px; font-weight:800}
+    .muted{color:#9aa3b2}
+    .grid{display:grid; gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:linear-gradient(180deg, rgba(15,26,48,.9), rgba(11,18,32,.9)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px}
+    .card h3{margin:.2rem 0 .3rem; font-size:1.15rem}
+    .card ul{margin:.3rem 0 0; padding-left:1rem}
+    .card li{margin:.35rem 0}
+    .service-icon{
+      width:40px; height:40px; border-radius:12px;
+      background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(14,165,233,.2));
+      display:inline-grid; place-items:center; border:1px solid rgba(255,255,255,.1)
+    }
+    .kpi{display:flex; gap:14px; align-items:center; padding:14px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08)}
+    .process{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:12px}
+    .step{padding:16px;border-radius:14px;background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08)}
+    .step .n{display:inline-flex; width:28px;height:28px;border-radius:50%; align-items:center;justify-content:center; background:rgba(34,197,94,.2); font-weight:800; color:#86efac; margin-bottom:.35rem}
+    .contact{display:grid;grid-template-columns:1.1fr .9fr; gap:18px}
+    form{display:grid; gap:10px}
+    input, textarea, select{
+      background:#0b152a; color:#e5e7eb; border:1px solid rgba(255,255,255,.12);
+      border-radius:12px; padding:12px 14px; outline:none
+    }
+    input:focus, textarea:focus{border-color: var(--brand); box-shadow:0 0 0 3px var(--ring)}
+    .footer{padding:34px 0; border-top:1px solid rgba(255,255,255,.06); color:#a3adc2}
+    .floating-cta{
+      position:fixed; right:18px; bottom:18px; z-index:60;
+      display:flex; gap:10px; flex-direction:column
+    }
+    .pulse{animation: pulse 2.2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    /* Responsive */
+    @media (max-width: 1024px){
+      .hero .wrap{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr 1fr}
+      .grid.cols-3{grid-template-columns:1fr 1fr}
+      .process{grid-template-columns:1fr 1fr}
+      .contact{grid-template-columns:1fr}
+    }
+    @media (max-width: 640px){
+      .stats{grid-template-columns:1fr}
+      .grid.cols-3, .grid.cols-2{grid-template-columns:1fr}
+      .menu{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ====== NAV ====== -->
+  <header class="nav" aria-label="Navigation principale">
+    <div class="container inner">
+      <a href="#" class="brand">
+  <img src="images/logo-ednet.png" alt="ED NET" style="height:40px;">
+</a>
+      <nav class="menu" aria-label="Liens de section">
+        <a href="#services">Services</a>
+        <a href="#pourquoi">Pourquoi nous</a>
+        <a href="#processus">Processus</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="#devis">Demandez un devis</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== HERO ====== -->
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <span class="badge">Votre expert en nettoyage depuis 2023</span>
+        <h1 class="h1">Espaces impeccables, équipes plus sereines.</h1>
+        <p class="lead">
+          Nous assurons le nettoyage professionnel des <b>copropriétés</b>, <b>bureaux</b> et <b>espaces commerciaux</b> : vitres sans traces, sols hygiéniques, services après-travaux, entretien des espaces verts et <b>gestion des déchets</b>.
+        </p>
+        <div class="cta-row">
+          <a class="btn" href="#devis" aria-label="Demander un devis gratuit">Demander un devis gratuit</a>
+          <a class="btn-outline" href="#services">Voir nos services</a>
+        </div>
+        <div class="trust" aria-label="Indicateurs de confiance">
+          <span class="chip">Interventions ponctuelles & régulières</span>
+          <span class="chip">Flexibles — sans perturber votre activité</span>
+          <span class="chip">Équipe formée & matériel pro</span>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>+96%</b><br><span class="muted">clients récurrents</span></div>
+          <div class="stat"><b>&lt;24h</b><br><span class="muted">devis personnalisé</span></div>
+          <div class="stat"><b>7/7</b><br><span class="muted">plages d’intervention</span></div>
+        </div>
+      </div>
+      <div class="glass hero-media" aria-hidden="true">
+        <img src="images/hero-ednet.jpg" alt="Équipe de nettoyage professionnelle au travail">
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== POURQUOI NOUS ====== -->
+  <section id="pourquoi" class="section">
+    <div class="container grid cols-3">
+      <div class="kpi">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M6 12V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v5M7 12v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5" stroke="#a7f3d0" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <b>Fiabilité & délais</b><br><span class="muted">Engagement qualité, interventions à l’heure.</span>
+        </div>
+      </div>
+      <div class="kpi">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#a7f3d0" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <b>Service complet</b><br><span class="muted">Du dépoussiérage à la gestion sélective des déchets.</span>
+        </div>
+      </div>
+      <div class="kpi">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M6 12h12M8 17h8" stroke="#a7f3d0" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <b>Contrats flexibles</b><br><span class="muted">Quotidien, hebdomadaire, mensuel ou ponctuel.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SERVICES ====== -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2>Nos services de nettoyage et d’entretien</h2>
+      <p class="muted">Des prestations adaptées à chaque espace pour garantir propreté, sécurité et confort.</p>
+
+      <div class="grid cols-3" style="margin-top:16px">
+        <!-- Copropriétés -->
+        <article class="card">
+          <div class="service-icon" aria-hidden="true">🏢</div>
+          <h3>Nettoyage & entretien des copropriétés</h3>
+          <p class="muted">Immeubles propres, sécurisés et agréables pour tous les résidents.</p>
+          <ul>
+            <li>Aspiration & lavage des parties communes</li>
+            <li>Entretien des sols & surfaces de contact</li>
+            <li>Nettoyage des vitres accessibles</li>
+            <li>Gestion des déchets</li>
+          </ul>
+        </article>
+
+        <!-- Bureaux -->
+        <article class="card">
+          <div class="service-icon" aria-hidden="true">🏬</div>
+          <h3>Nettoyage des bureaux professionnels</h3>
+          <p class="muted">Un espace de travail propre favorise la productivité et le bien-être.</p>
+          <ul>
+            <li>Dépoussiérage, désinfection & cuisinettes</li>
+            <li>Entretien des sols (moquette, PVC, carrelage)</li>
+            <li>Sanitaires & consommables</li>
+            <li>Prestations en horaires décalés</li>
+          </ul>
+        </article>
+
+        <!-- Vitres -->
+        <article class="card">
+          <div class="service-icon" aria-hidden="true">🪟</div>
+          <h3>Nettoyage des vitres</h3>
+          <p class="muted">Clarté maximale, zéro trace — intérieur, extérieur & accès difficiles.</p>
+          <ul>
+            <li>Vitrines commerciales</li>
+            <li>Baies vitrées & verrières</li>
+            <li>Résultat garanti : vitres éclatantes</li>
+            <li>Interventions sécurisées</li>
+          </ul>
+        </article>
+
+        <!-- Sols en profondeur -->
+        <article class="card">
+          <div class="service-icon" aria-hidden="true">🧼</div>
+          <h3>Nettoyage en profondeur des sols</h3>
+          <p class="muted">Hygiène durable, machines & produits spécialisés adaptés à chaque surface.</p>
+          <ul>
+            <li>Carrelage, parquet, moquette, sols PVC</li>
+            <li>Élimination des taches & bactéries</li>
+            <li>Décapage & lustrage</li>
+            <li>Prolonge la durée de vie des revêtements</li>
+          </ul>
+        </article>
+
+        <!-- Après travaux -->
+        <article class="card">
+          <div class="service-icon" aria-hidden="true">🏗️</div>
+          <h3>Nettoyage après travaux</h3>
+          <p class="muted">Remise en état complète : poussières, résidus et traces effacés.</p>
+          <ul>
+            <li>Dépoussiérage intégral & lavage des vitres</li>
+            <li>Élimination des gravats légers</li>
+            <li>Désinfection des surfaces</li>
+            <li>Locaux prêts à l’emploi</li>
+          </ul>
+        </article>
+
+        <!-- Espaces verts & déchets -->
+        <article class="card">
+          <div class="service-icon" aria-hidden="true">🌿</div>
+          <h3>Espaces verts & gestion des poubelles</h3>
+          <p class="muted">Extérieurs soignés et collecte sélective conforme aux normes.</p>
+          <ul>
+            <li>Tonte, désherbage, allées & feuilles</li>
+            <li>Collecte, tri & nettoyage des bacs</li>
+            <li>Réduction des nuisances & odeurs</li>
+            <li>Contrats d’entretien annuels</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== PROCESSUS ====== -->
+  <section id="processus" class="section">
+    <div class="container">
+      <h2>Un processus simple et efficace</h2>
+      <div class="process">
+        <div class="step">
+          <div class="n">1</div>
+          <b>Analyse</b>
+          <p class="muted">Nous évaluons vos besoins (site, surfaces, horaires, sécurité).</p>
+        </div>
+        <div class="step">
+          <div class="n">2</div>
+          <b>Devis gratuit</b>
+          <p class="muted">Une proposition claire sous 24h, sans engagement.</p>
+        </div>
+        <div class="step">
+          <div class="n">3</div>
+          <b>Intervention</b>
+          <p class="muted">Équipe formée, matériel pro, respect strict des délais.</p>
+        </div>
+        <div class="step">
+          <div class="n">4</div>
+          <b>Suivi qualité</b>
+          <p class="muted">Contrôles réguliers & ajustements selon vos retours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== DEVIS / CONTACT ====== -->
+  <section id="devis" class="section">
+    <div class="container contact">
+      <div>
+        <h2>Demandez votre devis gratuit</h2>
+        <p class="muted">Dites-nous en plus sur votre besoin. Nous revenons vers vous sous 24h.</p>
+        <form id="quoteForm" class="glass" style="padding:16px">
+          <div class="grid cols-2">
+            <div>
+              <label for="name">Nom & Prénom</label>
+              <input id="name" name="name" placeholder="Votre nom" required>
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="vous@exemple.com" required>
+            </div>
+          </div>
+          <div class="grid cols-2">
+            <div>
+              <label for="phone">Téléphone</label>
+              <input id="phone" name="phone" placeholder="+33 …">
+            </div>
+            <div>
+              <label for="service">Service</label>
+              <select id="service" name="service">
+                <option>Nettoyage copropriété</option>
+                <option>Nettoyage bureaux</option>
+                <option>Vitres</option>
+                <option>Sols en profondeur</option>
+                <option>Après travaux</option>
+                <option>Espaces verts</option>
+                <option>Gestion des poubelles</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label for="message">Détails & disponibilités</label>
+            <textarea id="message" name="message" rows="4" placeholder="Surface, fréquence souhaitée, créneaux…"></textarea>
+          </div>
+          <label style="display:flex; gap:.55rem; align-items:flex-start; font-size:.9rem; color:#cbd5e1">
+            <input type="checkbox" required aria-label="Consentement RGPD" style="width:18px;height:18px; accent-color:#22c55e">
+            J’accepte que mes informations soient utilisées pour être recontacté(e).
+          </label>
+          <div style="display:flex; gap:.7rem; align-items:center; margin-top:6px">
+            <button class="btn pulse" type="submit">Obtenir mon devis</button>
+            <a class="btn-outline" href="tel:+33000000000" aria-label="Appeler l’entreprise">📞  Appeler maintenant</a>
+          </div>
+          <p id="formMsg" class="muted" style="margin:10px 2px 0"></p>
+        </form>
+      </div>
+
+      <aside class="card" id="contact">
+        <h3>Contact & informations</h3>
+        <p class="muted">ED NET — entreprise de nettoyage pour résidences, entreprises et collectivités.</p>
+        <ul>
+          <li>📍 Zone d’intervention : locale & régionale</li>
+          <li>⏱️ Horaires flexibles — 7j/7</li>
+          <li>🛡️ Assurance & conformité</li>
+        </ul>
+        <div style="margin-top:12px; display:flex; gap:.6rem; flex-wrap:wrap">
+          <a class="btn" href="mailto:contact@ednet.example">Nous écrire</a>
+          <a class="btn-outline" href="https://wa.me/0000000000">WhatsApp</a>
+        </div>
+        <div style="margin-top:12px; border-top:1px solid rgba(255,255,255,.08); padding-top:12px">
+          <span class="chip">Devis sous 24h</span>
+          <span class="chip">Matériel professionnel</span>
+          <span class="chip">Équipe formée</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer">
+    <div class="container" style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
+      <div class="brand">
+  <img src="images/logo-ednet.png" alt="ED NET" style="height:40px;">
+</div>
+
+      <div>© <span id="year"></span> ED NET. Tous droits réservés.</div>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <div class="floating-cta" aria-hidden="false" aria-label="Actions rapides">
+    <a class="btn" href="#devis">Devis gratuit</a>
+    <a class="btn-outline" href="tel:+33000000000">📞 Appeler</a>
+  </div>
+
+  <script>
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // fake form handler (replace with your backend endpoint)
+    const form = document.getElementById('quoteForm');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const msg = document.getElementById('formMsg');
+      msg.textContent = "Merci ! Votre demande a bien été envoyée. Nous vous contacterons sous 24h.";
+      form.reset();
+      setTimeout(()=> msg.textContent = "", 6000);
+    });
+
+    // simple reveal on scroll
+    const reveal = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.animate([{opacity:0, transform:'translateY(10px)'},{opacity:1, transform:'translateY(0)'}], {duration:600, easing:'ease-out', fill:'forwards'});
+          reveal.unobserve(e.target);
+        }
+      })
+    }, {threshold:.12});
+    document.querySelectorAll('.card, .kpi, .stat, .step, .hero-media').forEach(el=>reveal.observe(el));
+  </script>
+</body>
+<!-- EmailJS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  // Inicializo me Public Key tuaj nga EmailJS
+  emailjs.init("YOcbr4CmNCosH1CTtV"); // <-- vendose këtu public key-n tënd
+
+  // Mbush automatikisht URL-n e faqes (nëse e ke fushën page_url)
+  const pageUrlField = document.getElementById('pageUrl');
+  if (pageUrlField) pageUrlField.value = window.location.href;
+
+  // Gjej formën dhe mesazhin për feedback
+  const form = document.getElementById('quoteForm');
+  const msg  = document.getElementById('formMsg');
+
+  // Kur dërgohet forma
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // Honeypot anti-spam (nëse është mbushur, ndalo)
+    const honey = form.querySelector('input[name="_honey"]');
+    if (honey && honey.value) return;
+
+    msg.textContent = "⏳ Dërgim në proces…";
+
+    // Dërgo përmes EmailJS
+    emailjs.sendForm(
+      "service_yhh3k3q",   // service_yhh3k3q
+      "template_rpg4elh",  // template_rpg4elh
+      this
+    ).then(() => {
+        msg.textContent = "✅ Kërkesa u dërgua me sukses! Do ju kontaktojmë brenda 24 orëve.";
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Gabim gjatë dërgimit:", error);
+        msg.textContent = "❌ Gabim gjatë dërgimit. Ju lutem provoni përsëri.";
+      });
+  });
+</script>
+
+</html>
