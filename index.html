@@ -413,18 +413,18 @@
       const honey = form.querySelector('input[name="_honey"]');
       if (honey && honey.value) return;
 
-      msg.textContent = "⏳ Dërgim në proces…";
+      msg.textContent = "⏳ Expédition en cours…";
 
       emailjs.sendForm(
         "service_yhh3k3q",     // service_yhh3k3q
         "template_rpg4elh",    // template_rpg4elh
         this
       ).then(()=>{
-        msg.textContent = "✅ Kërkesa u dërgua me sukses! Do ju kontaktojmë brenda 24 orëve.";
+        msg.textContent = "✅ Votre demande a été envoyée avec succès ! Nous vous contacterons sous 24 heures.";
         form.reset();
       }).catch((error)=>{
         console.error(error);
-        msg.textContent = "❌ Gabim gjatë dërgimit. Ju lutem provoni përsëri.";
+        msg.textContent = "❌ Erreur d'envoi. Veuillez réessayer.";
       });
     });
   </script>
