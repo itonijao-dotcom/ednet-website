@@ -9,18 +9,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#0b1220;
-      --ink:#0f172a;
-      --white:#ffffff;
-      --muted:#6b7280;
-      --brand:#22c55e;      /* vert propre */
-      --brand-ink:#0e9f6e;
-      --sky:#0ea5e9;        /* bleu clair */
-      --card:#0f1a30;
-      --ring:rgba(34,197,94,.35);
-      --soft:rgba(255,255,255,.06);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:18px;
+      --bg:#0b1220; --ink:#0f172a; --white:#ffffff; --muted:#6b7280;
+      --brand:#22c55e; --brand-ink:#0e9f6e; --sky:#0ea5e9;
+      --card:#0f1a30; --ring:rgba(34,197,94,.35); --soft:rgba(255,255,255,.06);
+      --shadow: 0 10px 30px rgba(0,0,0,.35); --radius:18px;
     }
     *{box-sizing:border-box}
     html,body{margin:0}
@@ -34,24 +26,13 @@
     }
     a{color:inherit;text-decoration:none}
     .container{width:min(1160px,92%);margin-inline:auto}
-    .btn{
-      display:inline-flex;align-items:center;gap:.55rem;
-      background:linear-gradient(180deg, var(--brand), var(--brand-ink));
-      color:#07130b;border:0;padding:.9rem 1.15rem;font-weight:700;border-radius:999px;
-      box-shadow:0 6px 18px rgba(34,197,94,.35); transition:.2s transform, .2s box-shadow, .2s filter;
-    }
-    .btn:hover{transform:translateY(-1px); box-shadow:0 10px 26px rgba(34,197,94,.45); filter:saturate(1.1)}
-    .btn-outline{
-      background:transparent;border:1px solid rgba(255,255,255,.18);color:#e5e7eb;
-      padding:.85rem 1.15rem;border-radius:999px;backdrop-filter: blur(6px);
-    }
+    .btn{display:inline-flex;align-items:center;gap:.55rem;background:linear-gradient(180deg,var(--brand),var(--brand-ink));color:#07130b;border:0;padding:.9rem 1.15rem;font-weight:700;border-radius:999px;box-shadow:0 6px 18px rgba(34,197,94,.35);transition:.2s}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(34,197,94,.45);filter:saturate(1.1)}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,.18);color:#e5e7eb;padding:.85rem 1.15rem;border-radius:999px;backdrop-filter: blur(6px)}
     .badge{display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .7rem;border-radius:999px;background:rgba(34,197,94,.15); color:#a7f3d0; font-weight:700; font-size:.85rem}
     .chip{display:inline-block;border:1px solid rgba(255,255,255,.12);padding:.35rem .7rem;border-radius:999px;color:#cbd5e1;font-size:.85rem}
-    .nav{
-      position:sticky;top:0;z-index:50;background:rgba(6,10,20,.7);
-      backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.06)
-    }
-    .nav .inner{display:flex;align-items:center;justify-content:space-between; padding: .8rem 0}
+    .nav{position:sticky;top:0;z-index:50;background:rgba(6,10,20,.7);backdrop-filter: blur(10px); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between; padding:.8rem 0}
     .brand{display:flex;gap:.7rem;align-items:center;font-weight:800;letter-spacing:.3px}
     .brand .mark{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 190deg at 70% 30%, var(--brand), var(--sky), #60a5fa, var(--brand)); box-shadow: inset 0 0 8px rgba(0,0,0,.15)}
     .menu{display:flex;gap:1.1rem;align-items:center}
@@ -61,10 +42,7 @@
     .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr; gap:32px; align-items:center}
     .h1{font-size:clamp(30px, 5vw, 54px); line-height:1.1; margin:.2rem 0 1rem; font-weight:800}
     .lead{color:#c7d2fe; font-size:clamp(16px, 2.1vw, 18px)}
-    .glass{
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border:1px solid rgba(255,255,255,.10); border-radius: var(--radius); box-shadow: var(--shadow)
-    }
+    .glass{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.10); border-radius: var(--radius); box-shadow: var(--shadow)}
     .hero-media{aspect-ratio: 4/3; border-radius: var(--radius); overflow:hidden; position:relative}
     .hero-media::after{content:""; position:absolute; inset:0; background: radial-gradient(800px 400px at 80% 0%, rgba(34,197,94,.16), transparent 60%)}
     .hero-media img{width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.05)}
@@ -83,42 +61,25 @@
     .card h3{margin:.2rem 0 .3rem; font-size:1.15rem}
     .card ul{margin:.3rem 0 0; padding-left:1rem}
     .card li{margin:.35rem 0}
-    .service-icon{
-      width:40px; height:40px; border-radius:12px;
-      background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(14,165,233,.2));
-      display:inline-grid; place-items:center; border:1px solid rgba(255,255,255,.1)
-    }
+    .service-icon{width:40px; height:40px; border-radius:12px;background:linear-gradient(180deg, rgba(34,197,94,.25), rgba(14,165,233,.2));display:inline-grid; place-items:center; border:1px solid rgba(255,255,255,.1)}
     .kpi{display:flex; gap:14px; align-items:center; padding:14px; border-radius:12px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08)}
     .process{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:12px}
     .step{padding:16px;border-radius:14px;background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08)}
     .step .n{display:inline-flex; width:28px;height:28px;border-radius:50%; align-items:center;justify-content:center; background:rgba(34,197,94,.2); font-weight:800; color:#86efac; margin-bottom:.35rem}
     .contact{display:grid;grid-template-columns:1.1fr .9fr; gap:18px}
     form{display:grid; gap:10px}
-    input, textarea, select{
-      background:#0b152a; color:#e5e7eb; border:1px solid rgba(255,255,255,.12);
-      border-radius:12px; padding:12px 14px; outline:none
-    }
+    input, textarea, select{background:#0b152a; color:#e5e7eb; border:1px solid rgba(255,255,255,.12);border-radius:12px; padding:12px 14px; outline:none}
     input:focus, textarea:focus{border-color: var(--brand); box-shadow:0 0 0 3px var(--ring)}
     .footer{padding:34px 0; border-top:1px solid rgba(255,255,255,.06); color:#a3adc2}
-    .floating-cta{
-      position:fixed; right:18px; bottom:18px; z-index:60;
-      display:flex; gap:10px; flex-direction:column
-    }
+    .floating-cta{position:fixed; right:18px; bottom:18px; z-index:60;display:flex; gap:10px; flex-direction:column}
     .pulse{animation: pulse 2.2s ease-in-out infinite}
     @keyframes pulse{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    /* Smooth anchor & offset for sticky header */
+    html{scroll-behavior:smooth}
+    section{scroll-margin-top:110px}
     /* Responsive */
-    @media (max-width: 1024px){
-      .hero .wrap{grid-template-columns:1fr}
-      .stats{grid-template-columns:1fr 1fr}
-      .grid.cols-3{grid-template-columns:1fr 1fr}
-      .process{grid-template-columns:1fr 1fr}
-      .contact{grid-template-columns:1fr}
-    }
-    @media (max-width: 640px){
-      .stats{grid-template-columns:1fr}
-      .grid.cols-3, .grid.cols-2{grid-template-columns:1fr}
-      .menu{display:none}
-    }
+    @media (max-width:1024px){.hero .wrap{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}.grid.cols-3{grid-template-columns:1fr 1fr}.process{grid-template-columns:1fr 1fr}.contact{grid-template-columns:1fr}}
+    @media (max-width:640px){.stats{grid-template-columns:1fr}.grid.cols-3,.grid.cols-2{grid-template-columns:1fr}.menu{display:none}}
   </style>
 </head>
 <body>
@@ -127,8 +88,8 @@
   <header class="nav" aria-label="Navigation principale">
     <div class="container inner">
       <a href="#" class="brand">
-  <img src="images/logo-ednet.png" alt="ED NET" style="height:40px;">
-</a>
+        <img src="images/logo-ednet.png" alt="ED NET" style="height:40px;">
+      </a>
       <nav class="menu" aria-label="Liens de section">
         <a href="#services">Services</a>
         <a href="#pourquoi">Pourquoi nous</a>
@@ -169,32 +130,20 @@
     </div>
   </section>
 
-  <!-- ====== POURQUOI NOUS ====== -->
-  <section id="pourquoi" class="section">
+  <!-- ====== (ex-KPI) renommé pour éviter doublim ID ====== -->
+  <section id="valeurs" class="section">
     <div class="container grid cols-3">
       <div class="kpi">
-        <div class="service-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M6 12V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v5M7 12v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5" stroke="#a7f3d0" stroke-width="1.5"/></svg>
-        </div>
-        <div>
-          <b>Fiabilité & délais</b><br><span class="muted">Engagement qualité, interventions à l’heure.</span>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 12h18M6 12V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v5M7 12v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5" stroke="#a7f3d0" stroke-width="1.5"/></svg></div>
+        <div><b>Fiabilité & délais</b><br><span class="muted">Engagement qualité, interventions à l’heure.</span></div>
       </div>
       <div class="kpi">
-        <div class="service-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#a7f3d0" stroke-width="1.5"/></svg>
-        </div>
-        <div>
-          <b>Service complet</b><br><span class="muted">Du dépoussiérage à la gestion sélective des déchets.</span>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#a7f3d0" stroke-width="1.5"/></svg></div>
+        <div><b>Service complet</b><br><span class="muted">Du dépoussiérage à la gestion sélective des déchets.</span></div>
       </div>
       <div class="kpi">
-        <div class="service-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M6 12h12M8 17h8" stroke="#a7f3d0" stroke-width="1.5"/></svg>
-        </div>
-        <div>
-          <b>Contrats flexibles</b><br><span class="muted">Quotidien, hebdomadaire, mensuel ou ponctuel.</span>
-        </div>
+        <div class="service-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M6 12h12M8 17h8" stroke="#a7f3d0" stroke-width="1.5"/></svg></div>
+        <div><b>Contrats flexibles</b><br><span class="muted">Quotidien, hebdomadaire, mensuel ou ponctuel.</span></div>
       </div>
     </div>
   </section>
@@ -225,9 +174,9 @@
           <h3>Nettoyage des bureaux professionnels</h3>
           <p class="muted">Un espace de travail propre favorise la productivité et le bien-être.</p>
           <ul>
-            <li>Dépoussiérage, désinfection </li>
+            <li>Dépoussiérage, désinfection</li>
             <li>Entretien des sols (moquette, PVC, carrelage)</li>
-            <li>Louage des sanitaires & consommables</li>
+            <li>Sanitaires & consommables</li>
             <li>Prestations en horaires décalés</li>
           </ul>
         </article>
@@ -253,7 +202,7 @@
           <ul>
             <li>Carrelage, parquet, moquette, sols PVC</li>
             <li>Élimination des taches & bactéries</li>
-            <li>Décapage & Cristallisation, Metallisation</li>
+            <li>Décapage, cristallisation, métallisation</li>
             <li>Prolonge la durée de vie des revêtements</li>
           </ul>
         </article>
@@ -281,8 +230,36 @@
           <ul>
             <li>Collecte, tri & nettoyage des bacs</li>
             <li>Réduction des nuisances & odeurs</li>
-            <li>Entretien des espace certs</li>
+            <li>Entretien des espaces verts</li>
           </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== POURQUOI NOUS (SEKSIONI KRYESOR) ====== -->
+  <section id="pourquoi" class="section">
+    <div class="container">
+      <div style="margin-bottom: 24px;">
+  <h2>Pourquoi nous choisir ?</h2>
+  <p style="max-width: 720px; margin: 8px 0 0; color: #bbb;">
+          Chez <strong>ED NET</strong>, nous savons que la propreté est bien plus qu'une question d'apparence,
+          c'est une valeur essentielle pour votre image, votre confort et votre bien-être.
+        </p>
+      </div>
+
+      <div class="grid cols-3" style="margin-top:16px">
+        <article class="card">
+          <h3>🌿 Engagement & Qualité</h3>
+          <p class="muted">Service fiable, discret et personnalisé. Équipe rigoureuse et efficace, respectueuse de l’environnement.</p>
+        </article>
+        <article class="card">
+          <h3>🧽 Produits & Méthodes</h3>
+          <p class="muted">Produits professionnels conformes, respectueux de la santé et des normes écologiques.</p>
+        </article>
+        <article class="card">
+          <h3>🤝 Satisfaction Garantie</h3>
+          <p class="muted">Suivi qualité, contrôles réguliers et ajustements selon vos besoins.</p>
         </article>
       </div>
     </div>
@@ -293,65 +270,13 @@
     <div class="container">
       <h2>Un processus simple et efficace</h2>
       <div class="process">
-        <div class="step">
-          <div class="n">1</div>
-          <b>Analyse</b>
-          <p class="muted">Nous évaluons vos besoins (site, surfaces, horaires, sécurité).</p>
-        </div>
-        <div class="step">
-          <div class="n">2</div>
-          <b>Devis gratuit</b>
-          <p class="muted">Une proposition claire sous 24h, sans engagement.</p>
-        </div>
-        <div class="step">
-          <div class="n">3</div>
-          <b>Intervention</b>
-          <p class="muted">Équipe formée, matériel pro, respect strict des délais.</p>
-        </div>
-        <div class="step">
-          <div class="n">4</div>
-          <b>Suivi qualité</b>
-          <p class="muted">Contrôles réguliers & ajustements selon vos retours.</p>
-        </div>
+        <div class="step"><div class="n">1</div><b>Analyse</b><p class="muted">Nous évaluons vos besoins (site, surfaces, horaires, sécurité).</p></div>
+        <div class="step"><div class="n">2</div><b>Devis gratuit</b><p class="muted">Une proposition claire sous 24h, sans engagement.</p></div>
+        <div class="step"><div class="n">3</div><b>Intervention</b><p class="muted">Équipe formée, matériel pro, respect strict des délais.</p></div>
+        <div class="step"><div class="n">4</div><b>Suivi qualité</b><p class="muted">Contrôles réguliers & ajustements selon vos retours.</p></div>
       </div>
     </div>
   </section>
-<!-- ====== POURQUOI NOUS ====== -->
-<section id="pourquoi" class="section">
-  <div class="container">
-    <div class="text-center" style="margin-bottom: 40px;">
-      <h2 style="font-size: 2.2rem; font-weight: 700;">Pourquoi nous choisir ?</h2>
-      <p style="max-width: 700px; margin: 10px auto; color: #bbb;">
-        Chez <strong>ED NET</strong>, nous savons que la propreté est bien plus qu'une question d'apparence — 
-        c'est une valeur essentielle pour votre image, votre confort et votre bien-être.
-      </p>
-    </div>
-
-    <div class="row" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center;">
-      <div class="card" style="background: #111; padding: 30px; border-radius: 16px; max-width: 420px;">
-        <h3 style="color: #dc9528; font-weight: 600;">🌿 Engagement & Qualité</h3>
-        <p style="color: #ccc; margin-top: 8px;">
-          Nous mettons un point d’honneur à offrir un service fiable, discret et personnalisé. 
-          Notre équipe travaille avec rigueur, efficacité et respect de l’environnement.
-        </p>
-      </div>
-
-      <div class="card" style="background: #111; padding: 30px; border-radius: 16px; max-width: 420px;">
-        <h3 style="color: #dc9528; font-weight: 600;">🧽 Produits & Méthodes</h3>
-        <p style="color: #ccc; margin-top: 8px;">
-          Nous utilisons uniquement des produits professionnels, respectueux de la santé et des normes écologiques.
-        </p>
-      </div>
-
-      <div class="card" style="background: #111; padding: 30px; border-radius: 16px; max-width: 420px;">
-        <h3 style="color: #dc9528; font-weight: 600;">🤝 Satisfaction Garantie</h3>
-        <p style="color: #ccc; margin-top: 8px;">
-          Votre satisfaction est notre priorité. Chaque prestation est suivie par des contrôles réguliers et ajustements selon vos besoins.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
 
   <!-- ====== DEVIS / CONTACT ====== -->
   <section id="devis" class="section">
@@ -359,7 +284,14 @@
       <div>
         <h2>Demandez votre devis gratuit</h2>
         <p class="muted">Dites-nous en plus sur votre besoin. Nous revenons vers vous sous 24h.</p>
+
+        <!-- FORM: EmailJS -->
         <form id="quoteForm" class="glass" style="padding:16px">
+          <!-- Hidden (EmailJS) -->
+          <input type="hidden" name="subject" value="Demande de devis via site ED NET">
+          <input type="hidden" name="page_url" id="pageUrl" value="">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
           <div class="grid cols-2">
             <div>
               <label for="name">Nom & Prénom</label>
@@ -370,6 +302,7 @@
               <input id="email" type="email" name="email" placeholder="vous@exemple.com" required>
             </div>
           </div>
+
           <div class="grid cols-2">
             <div>
               <label for="phone">Téléphone</label>
@@ -388,18 +321,22 @@
               </select>
             </div>
           </div>
+
           <div>
             <label for="message">Détails & disponibilités</label>
             <textarea id="message" name="message" rows="4" placeholder="Surface, fréquence souhaitée, créneaux…"></textarea>
           </div>
+
           <label style="display:flex; gap:.55rem; align-items:flex-start; font-size:.9rem; color:#cbd5e1">
             <input type="checkbox" required aria-label="Consentement RGPD" style="width:18px;height:18px; accent-color:#22c55e">
             J’accepte que mes informations soient utilisées pour être recontacté(e).
           </label>
+
           <div style="display:flex; gap:.7rem; align-items:center; margin-top:6px">
             <button class="btn pulse" type="submit">Obtenir mon devis</button>
             <a class="btn-outline" href="tel:+33634672073" aria-label="Appeler l’entreprise">📞  Appeler maintenant</a>
           </div>
+
           <p id="formMsg" class="muted" style="margin:10px 2px 0"></p>
         </form>
       </div>
@@ -429,9 +366,8 @@
   <footer class="footer">
     <div class="container" style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap">
       <div class="brand">
-  <img src="images/logo-ednet.png" alt="ED NET" style="height:40px;">
-</div>
-
+        <img src="images/logo-ednet.png" alt="ED NET" style="height:40px;">
+      </div>
       <div>© <span id="year"></span> ED NET. Tous droits réservés.</div>
     </div>
   </footer>
@@ -442,21 +378,10 @@
     <a class="btn-outline" href="tel:+33634672073">📞 Appeler</a>
   </div>
 
+  <!-- Year + reveals -->
   <script>
-    // year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // fake form handler (replace with your backend endpoint)
-    const form = document.getElementById('quoteForm');
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const msg = document.getElementById('formMsg');
-      msg.textContent = "Merci ! Votre demande a bien été envoyée. Nous vous contacterons sous 24h.";
-      form.reset();
-      setTimeout(()=> msg.textContent = "", 6000);
-    });
-
-    // simple reveal on scroll
     const reveal = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
@@ -467,45 +392,41 @@
     }, {threshold:.12});
     document.querySelectorAll('.card, .kpi, .stat, .step, .hero-media').forEach(el=>reveal.observe(el));
   </script>
-</body>
-<!-- EmailJS SDK -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  // Inicializo me Public Key tuaj nga EmailJS
-  emailjs.init("YOcbr4CmNCosH1CTtV"); // <-- vendose këtu public key-n tënd
 
-  // Mbush automatikisht URL-n e faqes (nëse e ke fushën page_url)
-  const pageUrlField = document.getElementById('pageUrl');
-  if (pageUrlField) pageUrlField.value = window.location.href;
+  <!-- EmailJS SDK + handler (VENDOSUR SIÇ DUHET) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    // Zëvendëso public key-n nëse ndryshon në EmailJS
+    emailjs.init("Ocbr4CmNCosH1CTtV");
 
-  // Gjej formën dhe mesazhin për feedback
-  const form = document.getElementById('quoteForm');
-  const msg  = document.getElementById('formMsg');
+    // Mbush URL-n aktuale
+    const pageUrlField = document.getElementById('pageUrl');
+    if (pageUrlField) pageUrlField.value = window.location.href;
 
-  // Kur dërgohet forma
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
+    const form = document.getElementById('quoteForm');
+    const msg  = document.getElementById('formMsg');
 
-    // Honeypot anti-spam (nëse është mbushur, ndalo)
-    const honey = form.querySelector('input[name="_honey"]');
-    if (honey && honey.value) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
 
-    msg.textContent = "⏳ Dërgim në proces…";
+      // Honeypot
+      const honey = form.querySelector('input[name="_honey"]');
+      if (honey && honey.value) return;
 
-    // Dërgo përmes EmailJS
-    emailjs.sendForm(
-      "service_yhh3k3q",   // service_yhh3k3q
-      "template_rpg4elh",  // template_rpg4elh
-      this
-    ).then(() => {
+      msg.textContent = "⏳ Dërgim në proces…";
+
+      emailjs.sendForm(
+        "service_yhh3k3q",     // service_yhh3k3q
+        "template_rpg4elh",    // template_rpg4elh
+        this
+      ).then(()=>{
         msg.textContent = "✅ Kërkesa u dërgua me sukses! Do ju kontaktojmë brenda 24 orëve.";
         form.reset();
-      })
-      .catch((error) => {
-        console.error("Gabim gjatë dërgimit:", error);
+      }).catch((error)=>{
+        console.error(error);
         msg.textContent = "❌ Gabim gjatë dërgimit. Ju lutem provoni përsëri.";
       });
-  });
-</script>
-
+    });
+  </script>
+</body>
 </html>
